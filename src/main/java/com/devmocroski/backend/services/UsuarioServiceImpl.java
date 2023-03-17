@@ -15,7 +15,6 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-   
 
     @Override
     public Usuario inserir(Usuario objeto) throws Exception {
