@@ -9,6 +9,7 @@ import com.devmocroski.backend.entities.Usuario;
 @Service
 public interface UsuarioService {
 	
+	
 	Usuario inserir(Usuario objeto) throws Exception;
 	
 	List<Usuario> buscarPorNome(String nome) throws Exception;
