@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.devmocroski.backend.entities.Usuario;
+import com.devmocroski.backend.exceptions.DuplicateEmailException;
+import com.devmocroski.backend.exceptions.NotFoundException;
 import com.devmocroski.backend.repository.UsuarioRepository;
 
 import jakarta.transaction.Transactional;
@@ -24,7 +26,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         // Verifica se o e-mail já está cadastrado
         Usuario usuarioExistente = usuarioRepository.findByEmail(objeto.getEmail());
         if (usuarioExistente != null) {
-            throw new Exception("E-mail já cadastrado!");
+            throw new DuplicateEmailException();
         }
         
         // Salva o novo usuário
@@ -37,7 +39,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> listarTodos() throws Exception {
 		List<Usuario> usuarios = usuarioRepository.findAll();
 		if(usuarios.isEmpty()) {
-			throw new Exception("Não existem usuarios cadastrados");
+			throw new NotFoundException();
 		}
 		return usuarios;
 	}	
