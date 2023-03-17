@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 import com.devmocroski.backend.entities.Projeto;
 import com.devmocroski.backend.repository.ProjetoRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class ProjetoServiceImpl implements ProjetoService {
 
     @Autowired

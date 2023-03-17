@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 import com.devmocroski.backend.entities.Usuario;
 import com.devmocroski.backend.repository.UsuarioRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
